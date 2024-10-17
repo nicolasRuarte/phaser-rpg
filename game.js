@@ -9,6 +9,7 @@ export class Game extends Phaser.Scene {
 
   preload(){
     const imagesRoute = "assets/images/";
+    const audioRoute = "assets/audio/"
 
     this.load.image("fondo", `${imagesRoute}fondo-test.jpg`);
     this.load.image("btnArriba", `${imagesRoute}btn-arriba.png`);
@@ -18,6 +19,8 @@ export class Game extends Phaser.Scene {
     this.load.image("btnAccion", "assets/images/btn-accion.png");
     this.load.image("jugador", `${imagesRoute}cuadrado-rojo.png`);
     this.load.image("objeto", `${imagesRoute}cuadrado-azul.png`);
+
+    this.load.audio("musicaFondo", `${audioRoute}xDeviruchi/Title-Theme.wav`);
   }
 
   create(){
@@ -34,6 +37,9 @@ export class Game extends Phaser.Scene {
     this.add.existing(this.btnizquierda);
     this.add.existing(this.btnDerecha);
 
+    this.musicaFondo = this.sound.add("musicaFondo");
+    this.musicaFondo.setVolume(0.5);
+    this.musicaFondo.play();
   }
 
   update(time, delta){
