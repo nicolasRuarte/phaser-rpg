@@ -23,17 +23,3 @@ const config = {
 }
 
 const juego = new Phaser.Game(config);
-
-const gameState = {
-  preload: function() {
-    juego.load.spritesheet("buttons", "public/assets/images/direction-buttons.png");
-  },
-
-  create: function() {
-    console.log("Hola");
-  },
-
-  update: function() {
-
-  }
-}
