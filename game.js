@@ -1,5 +1,6 @@
 import Phaser from "phaser";
 import { Boton } from "./boton.js";
+import { Pared } from "./pared.js";
 
 export class Game extends Phaser.Scene {
   
@@ -9,6 +10,7 @@ export class Game extends Phaser.Scene {
 
   preload(){
     const imagesRoute = "assets/images/";
+    const audioRoute = "assets/audio/"
 
     this.load.image("fondo", `${imagesRoute}fondo-test.jpg`);
     this.load.image("btnArriba", `${imagesRoute}btn-arriba.png`);
@@ -16,41 +18,51 @@ export class Game extends Phaser.Scene {
     this.load.image("btnIzquierda", "assets/images/btn-izquierda.png");
     this.load.image("btnDerecha", "assets/images/btn-derecha.png");
     this.load.image("btnAccion", "assets/images/btn-accion.png");
-    this.load.image("jugador", `${imagesRoute}cuadrado-rojo.png`);
-    this.load.image("objeto", `${imagesRoute}cuadrado-azul.png`);
+
+    this.load.image("jugador", `${imagesRoute}cuadrado-azul.png`);
+
+    this.load.audio("musicaFondo", `${audioRoute}xDeviruchi/Title-Theme.wav`);
   }
 
   create(){
-    this.jugador = this.physics.add.image(300, 100, "jugador");
     this.add.image(0, 0, "fondo");
-    this.objeto = this.physics.add.image(400, 250, "objeto").setScale(0.5);
+    this.jugador = this.physics.add.image(400, 250, "jugador").setScale(0.5);
+
+    this.paredes = this.physics.add.group();
+
     this.btnArriba = new Boton(this, 400, 360, "btnArriba");
     this.btnAbajo = new Boton(this, 400, 424, "btnAbajo");
     this.btnizquierda = new Boton(this, 336, 424, "btnIzquierda");
     this.btnDerecha = new Boton(this, 464, 424, "btnDerecha");
+    this.btnAccion = new Boton(this, 64, 424, "btnAccion");
     
     this.add.existing(this.btnArriba);
     this.add.existing(this.btnAbajo);
     this.add.existing(this.btnizquierda);
     this.add.existing(this.btnDerecha);
+    this.add.existing(this.btnAccion);
+
+    this.musicaFondo = this.sound.add("musicaFondo");
+    this.musicaFondo.setVolume(0.5);
+    this.musicaFondo.play();
 
   }
 
   update(time, delta){
     if (this.btnArriba.isActive){
-      this.objeto.setVelocityY(-10 * delta);
+      this.jugador.setVelocityY(-10 * delta);
 
     }else if (this.btnAbajo.isActive){
-      this.objeto.setVelocityY(10 * delta);
+      this.jugador.setVelocityY(10 * delta);
 
     }else if (this.btnizquierda.isActive){
-      this.objeto.setVelocityX(-10 * delta);
+      this.jugador.setVelocityX(-10 * delta);
 
     }else if (this.btnDerecha.isActive){
-      this.objeto.setVelocityX(10 * delta);
+      this.jugador.setVelocityX(10 * delta);
 
     }else{
-      this.objeto.setVelocity(0);
+      this.jugador.setVelocity(0);
     }
   }
 }
