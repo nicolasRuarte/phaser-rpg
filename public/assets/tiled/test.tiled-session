@@ -16,15 +16,16 @@
             "scaleInEditor": 1
         },
         "piso.tmx": {
-            "scale": 0.75,
+            "scale": 1,
             "selectedLayer": 0,
             "viewCenter": {
-                "x": 435.99999999999994,
-                "y": 352
+                "x": 208,
+                "y": 448.5
             }
         },
         "piso.tmx#Piso": {
-            "scaleInDock": 0.5
+            "scaleInDock": 0.5,
+            "scaleInEditor": 1
         }
     },
     "last.exportedFilePath": "/home/estudiante/phaser-rpg/public/assets/tiled",
