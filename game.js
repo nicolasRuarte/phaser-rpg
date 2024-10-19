@@ -10,9 +10,13 @@ export class Game extends Phaser.Scene {
 
   preload(){
     const imagesRoute = "assets/images/";
-    const audioRoute = "assets/audio/"
+    const audioRoute = "assets/audio/";
+    const tilemapRoute = "assets/tiled/";
 
+   
     this.load.image("fondo", `${imagesRoute}fondo-test.jpg`);
+    this.load.image("pisos", `${imagesRoute}axulart/beach/crushed.png`);
+    this.load.tilemapTiledJSON("tilemap", `${tilemapRoute}piso.json`);
     this.load.image("btnArriba", `${imagesRoute}btn-arriba.png`);
     this.load.image("btnAbajo", "assets/images/btn-abajo.png");
     this.load.image("btnIzquierda", "assets/images/btn-izquierda.png");
@@ -25,10 +29,15 @@ export class Game extends Phaser.Scene {
   }
 
   create(){
-    this.add.image(0, 0, "fondo");
-    this.jugador = this.physics.add.image(400, 250, "jugador").setScale(0.5);
+    //this.add.image(0, 0, "fondo");
+    this.jugador = this.physics.add.image(50, 0, "jugador").setScale(0.5);
 
-    this.paredes = this.physics.add.group();
+    const map = this.make.tilemap({ key: "tilemap" });
+    const tileset = map.addTilesetImage("Piso", "pisos");
+
+    this.fondo = map.createLayer("capa-piso", tileset);
+
+    this.fondo.setCollisionByProperty({colision: true})
 
     this.btnArriba = new Boton(this, 400, 360, "btnArriba");
     this.btnAbajo = new Boton(this, 400, 424, "btnAbajo");
@@ -46,6 +55,7 @@ export class Game extends Phaser.Scene {
     this.musicaFondo.setVolume(0.5);
     this.musicaFondo.play();
 
+    this.physics.add.collider(this.jugador, this.fondo);
   }
 
   update(time, delta){

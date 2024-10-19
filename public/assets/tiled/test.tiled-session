@@ -3,16 +3,47 @@
         "height": 4300,
         "width": 2
     },
-    "activeFile": "",
+    "activeFile": "piso.tmx",
     "expandedProjectPaths": [
+        "."
     ],
     "fileStates": {
+        "": {
+            "scaleInDock": 1,
+            "scaleInEditor": 1
+        },
+        "#Piso": {
+            "scaleInEditor": 1
+        },
+        "piso.tmx": {
+            "scale": 0.75,
+            "selectedLayer": 0,
+            "viewCenter": {
+                "x": 435.99999999999994,
+                "y": 352
+            }
+        },
+        "piso.tmx#Piso": {
+            "scaleInDock": 0.5
+        }
     },
-    "map.tileHeight": 64,
-    "map.tileWidth": 64,
+    "last.exportedFilePath": "/home/estudiante/phaser-rpg/public/assets/tiled",
+    "last.imagePath": "/home/estudiante/phaser-rpg/public/assets/images/axulart/beach",
+    "map.lastUsedExportFilter": "JSON map files (*.tmj *.json)",
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 32,
+    "map.tileWidth": 32,
     "openFiles": [
+        "piso.tmx"
     ],
     "project": "test.tiled-project",
+    "property.type": "bool",
     "recentFiles": [
-    ]
+        "piso.tmx"
+    ],
+    "tileset.embedInMap": true,
+    "tileset.tileSize": {
+        "height": 32,
+        "width": 32
+    }
 }

@@ -3,7 +3,6 @@ export class Boton extends Phaser.GameObjects.Container{
   textura;
   isActive = false;
 
-  //Pasamos al objeto del jugador para que sepa qué es lo que tienen que mover
   constructor(scene, x, y, textura){
     super(scene, x, y);
 
@@ -19,6 +18,10 @@ export class Boton extends Phaser.GameObjects.Container{
         console.log("Click)");
       })
       .on(Phaser.Input.Events.POINTER_UP, () => {
+        this.setAlpha(0.5);
+        this.isActive = false;
+      })
+      .on(Phaser.Input.Events.POINTER_OUT, () => {
         this.setAlpha(0.5);
         this.isActive = false;
       })
