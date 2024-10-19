@@ -51,6 +51,7 @@ export class Game extends Phaser.Scene {
 
     this.musicaFondo = this.sound.add("musicaFondo");
     this.musicaFondo.setVolume(0.5);
+    this.musicaFondo.setLoop(true);
     this.musicaFondo.play();
 
     this.physics.add.collider(this.jugador, this.fondo);
