@@ -15,7 +15,7 @@ export class Boton extends Phaser.GameObjects.Container{
       .on(Phaser.Input.Events.POINTER_DOWN, () => {
         this.setAlpha(1);
         this.isActive = true;
-        console.log("Click)");
+        console.log("Click");
       })
       .on(Phaser.Input.Events.POINTER_UP, () => {
         this.setAlpha(0.5);
