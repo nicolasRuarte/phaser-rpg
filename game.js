@@ -1,6 +1,5 @@
 import Phaser from "phaser";
 import { Boton } from "./boton.js";
-import { Pared } from "./pared.js";
 
 export class Game extends Phaser.Scene {
   
